@@ -26,9 +26,9 @@ def home():
 
 @APP.route("/data")
 def data():
-    if SPRINT < 1:
+    if SPRINT == 1:
         return render_template("data.html")
-    db = Database()
+    db = Database(collection_name='monsters')
     return render_template(
         "data.html",
         count=db.count(),
@@ -97,4 +97,6 @@ def model():
 
 
 if __name__ == '__main__':
+    # db = Database(collection_name='monsters')
+    # db.seed(amount=100)
     APP.run()
