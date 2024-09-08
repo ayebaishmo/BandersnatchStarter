@@ -97,6 +97,7 @@ def model():
 
 
 if __name__ == '__main__':
-    # db = Database(collection_name='monsters')
-    # db.seed(amount=100)
+    db = Database(collection_name='monsters')
+    db.seed(amount=1000)
+    # db.reset()
     APP.run()

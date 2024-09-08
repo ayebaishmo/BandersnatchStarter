@@ -16,7 +16,8 @@ class Database:
 
     def seed(self, amount):
         """
-        Seeds the collection with amount of random monsters using the monsterlab librarry
+        Seeds the collection with amount of random monsters 
+        using the monsterlab librarry
         """
         monsters = [Monster().to_dict() for _ in range(amount)]
         self.collection.insert_many(monsters)
@@ -35,7 +36,8 @@ class Database:
 
     def dataframe(self) -> DataFrame:
         """
-        Returns a DataFrame containing all documents in the collection
+        Returns a DataFrame containing all documents in the 
+        collection
         """
         cursor = self.collection.find({})
         df = DataFrame(list(cursor))
@@ -43,7 +45,8 @@ class Database:
 
     def html_table(self) -> str:
         """
-        Returns the html table representation of the DataFrame or none of the collection is empty
+        Returns the html table representation of the DataFrame 
+        or none of the collection is empty
         """
         df = self.dataframe()
         if df.empty:
