@@ -6,6 +6,7 @@ from MonsterLab import Monster
 from pandas import DataFrame
 from pymongo import MongoClient
 
+
 class Database:
 
     def __init__(self, collection_name):
@@ -16,7 +17,7 @@ class Database:
 
     def seed(self, amount):
         """
-        Seeds the collection with amount of random monsters 
+        Seeds the collection with amount of random monsters
         using the monsterlab librarry
         """
         monsters = [Monster().to_dict() for _ in range(amount)]
@@ -36,7 +37,7 @@ class Database:
 
     def dataframe(self) -> DataFrame:
         """
-        Returns a DataFrame containing all documents in the 
+        Returns a DataFrame containing all documents in the
         collection
         """
         cursor = self.collection.find({})
@@ -45,7 +46,7 @@ class Database:
 
     def html_table(self) -> str:
         """
-        Returns the html table representation of the DataFrame 
+        Returns the html table representation of the DataFrame
         or none of the collection is empty
         """
         df = self.dataframe()
