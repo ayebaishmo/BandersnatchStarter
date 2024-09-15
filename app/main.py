@@ -38,15 +38,17 @@ def data():
 
 @APP.route("/view", methods=["GET", "POST"])
 def view():
-    if SPRINT < 2:
+    if SPRINT == 2:
         return render_template("view.html")
-    db = Database()
+    db = Database(collection_name='monsters')
     options = ["Level", "Health", "Energy", "Sanity", "Rarity"]
     x_axis = request.values.get("x_axis") or options[1]
     y_axis = request.values.get("y_axis") or options[2]
     target = request.values.get("target") or options[4]
+    df = db.dataframe()
+    df_after_drop = df.drop(columns=['_id'])
     graph = chart(
-        df=db.dataframe(),
+        df=df_after_drop,
         x=x_axis,
         y=y_axis,
         target=target,
@@ -98,6 +100,6 @@ def model():
 
 if __name__ == '__main__':
     db = Database(collection_name='monsters')
-    db.seed(amount=1000)
+    # db.seed(amount=1000)
     # db.reset()
     APP.run()
