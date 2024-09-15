@@ -51,9 +51,9 @@
         <br class="clear">
     </form>
 
-    <div id="graph">
+    <div id="graph"></div>
         <script type="text/javascript">
-            vegaEmbed('#graph', {{ graph | safe }});
+            vegaEmbed('#graph', {{ graph | safe }})
         </script>
-    </div>
+
 {% endblock %}
