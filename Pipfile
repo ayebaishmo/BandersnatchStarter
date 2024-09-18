@@ -19,6 +19,7 @@ python-dotenv = "*"
 scikit-learn = "*"
 scipy = "*"
 pycodestyle = "*"
+matplotlib = "*"
 
 [dev-packages]
 

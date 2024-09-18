@@ -66,9 +66,9 @@ def view():
 
 @APP.route("/model", methods=["GET", "POST"])
 def model():
-    if SPRINT < 3:
+    if SPRINT == 3:
         return render_template("model.html")
-    db = Database()
+    db = Database(collection_name='monsters')
     options = ["Level", "Health", "Energy", "Sanity", "Rarity"]
     filepath = os.path.join("app", "model.joblib")
     if not os.path.exists(filepath):
