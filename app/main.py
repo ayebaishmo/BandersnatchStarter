@@ -71,7 +71,8 @@ def model():
     db = Database(collection_name='monsters')
     options = ["Level", "Health", "Energy", "Sanity", "Rarity"]
     filepath = os.path.join("app", "model.joblib")
-    if not os.path.exists(filepath):
+    retrain = request.values.get("retrain", type=bool, default=False)
+    if retrain  or not os.path.exists(filepath):
         df = db.dataframe()
         machine = Machine(df[options])
         machine.save(filepath)

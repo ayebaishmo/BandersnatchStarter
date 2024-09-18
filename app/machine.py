@@ -53,4 +53,4 @@ class Machine:
         """
         Return a string with the name of the model and the timestamp of initialization.
         """
-        return f"Model: {self.name}, Initialized: {self.timestamp}"
+        return f"Base Model: {self.name} <br> Timestamp: {self.timestamp}"

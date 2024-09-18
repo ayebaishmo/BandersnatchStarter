@@ -2,7 +2,6 @@
 {% block content %}
     <h1>Bandersnatch Model</h1>
     <p>{{ info | safe }}</p>
-
     <h2>Prediction Basis</h2>
     <form id="form" method="post" action="{{ url_for('model') }}">
         <p><label>
@@ -20,6 +19,10 @@
         <p><label>
             Sanity: <input name="sanity" value="{{ sanity }}"/>
         </label></p>
+        <br class="clear">
+        <p><label>
+                Retrain: <input type="checkbox" name="retrain" value="True" {% if retrain %}checked{% endif %}/>
+            </label></p>
         <br class="clear">
         <button type="submit">Predict Rarity</button>
         <br class="clear">
