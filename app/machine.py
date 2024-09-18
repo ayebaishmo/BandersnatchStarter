@@ -17,7 +17,6 @@ class Machine:
         self.name = "LogisticRegression"
         self.timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
 
-
         self.target = df['Rarity']
         self.features = df.drop(columns=["Rarity"])
 
@@ -26,8 +25,9 @@ class Machine:
 
     def __call__(self, feature_basis):
         """
-        Make a prediction based on the input features. 
-        Returns the predicted class and the confidence (probability) of the prediction.
+        Make a prediction based on the input features.
+        Returns the predicted class and the confidence
+        (probability) of the prediction.
         """
 
         prediction = self.model.predict(feature_basis)[0]
@@ -51,6 +51,7 @@ class Machine:
 
     def info(self):
         """
-        Return a string with the name of the model and the timestamp of initialization.
+        Return a string with the name of the model
+        and the timestamp of initialization.
         """
         return f"Base Model: {self.name} <br> Timestamp: {self.timestamp}"
